@@ -69,8 +69,11 @@ def clean_review(text):
         line = line.lstrip()
         line = line.rstrip()
         line = clean(line)
-        if len(line) < 7:  # 过于短的评论需要删除
+        try:
+          if len(line) < 7:  # 过于短的评论需要删除
             continue
+        except:
+          continue
         if line and line not in ['该用户没有填写评论。', '用户晒单。']:
             review_set.append(line)
 
@@ -157,6 +160,7 @@ if __name__ == "__main__":
     print('开始清洗文本...')
     for _, _, files in os.walk(config.RAW_DATA_FOLD):
         for file in files:
+            print('[test] load file{}'.format(file))
             if 'txt' not in file:
                 continue
             doc_path = os.path.join(config.RAW_DATA_FOLD, file)

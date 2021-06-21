@@ -122,9 +122,11 @@ if __name__ == '__main__':
     PRODUCTID = 279619  # 修改商品ID以得到不同商品发现的新词
     ######
 
-    with open('%s/%s.txt' % (config.CLEAN_DATA_FOLD, PRODUCTID), 'r') as f:
+    #with open('%s/%s.txt' % (config.CLEAN_DATA_FOLD, PRODUCTID), 'r') as f:
+    with open('clean_review/red.txt') as f:
         str_text = f.read()
-    with open('%s/%s.txt' % (config.SEG_POS_FOLD, PRODUCTID), 'r') as f:
+    #with open('%s/%s.txt' % (config.SEG_POS_FOLD, PRODUCTID), 'r') as f:
+    with open('seg_pos/red.txt')as f:
         seg_pos_text = f.readlines()
 
     # 加载停用词
